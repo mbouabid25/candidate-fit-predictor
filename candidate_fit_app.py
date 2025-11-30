@@ -97,6 +97,28 @@ if st.session_state.page == "Introduction":
 
     Click "Next" to begin!
     """)
+    # Show a small code snippet of a linear regression model for transparency
+    st.subheader("Model (Linear Regression) — snippet")
+    st.code(
+        '''from sklearn.linear_model import LinearRegression
+import numpy as np
+
+# Simulated features: SQL, Python, Strategy, Vibe
+np.random.seed(42)
+X = np.random.randint(0, 11, size=(200, 4))
+
+# Weights and base score
+weights = np.array([0.8, 1.2, 1.0, 0.5])
+base_awesomeness = 8
+
+# Continuous target (for linear regression example)
+y = X.dot(weights) + base_awesomeness + np.random.normal(0, 2, size=200)
+
+# Train linear regression model
+model = LinearRegression()
+model.fit(X, y)
+print('Coefficients:', model.coef_)
+''', language='python')
     if st.button("Next: Data Needs"):
         next_page("SQL")
     
